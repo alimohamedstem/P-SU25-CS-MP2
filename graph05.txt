@@ -1,0 +1,11 @@
+# Triangle: nodes 1-2-3
+1 2
+2 3
+3 1
+# Square: nodes 4-5-6-7
+4 5
+5 6
+6 7
+7 4
+# Connecting edge
+3 4
