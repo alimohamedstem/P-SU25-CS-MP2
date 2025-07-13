@@ -93,6 +93,21 @@ function label_propagation(g, node_info)
             end
 
         end
+        current_labels = [node_info[k].label for k in 1:nv(g)]
+        current_score = get_score(g, node_info, current_labels)
+        most_common_node = mode(current_labels)
+        for k in 1:nv(g)
+            node_info[k].label = most_common_node
+        end
+        new_colors = [node_info[k].label for k in 1:nv(g)]
+        new_score = get_score(g, node_info, new_colors)
+        if new_score > current_score
+            label_changed = true
+        else
+            for k in 1:nv(g)
+                node_info[k].label = current_labels[k]
+            end
+        end
     end
 end
 
